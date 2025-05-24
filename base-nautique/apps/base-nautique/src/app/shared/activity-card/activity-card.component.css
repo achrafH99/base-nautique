@@ -1,0 +1,59 @@
+.activity-card {
+  background-color: #212121;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  color: white;
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.activity-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0; /* arrondi que en haut */
+  flex-shrink: 0;  /* empêche l’image de rétrécir */
+}
+
+.info {
+  flex-grow: 1;  /* prend tout l’espace restant */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 8em;       
+  overflow: hidden;         /* correspond à 2 lignes environ */
+}
+
+.details-button {
+  color: black;
+  background-color: white;
+  font-size: medium;
+  padding: 7px;
+  border: none;
+  border-radius: 20px;
+  margin-top: auto;  /* pousse le bouton en bas de .info */
+}
+
+.title {
+
+  margin: 0 0 0.5em 0;     /* petit espace sous le titre */
+}
+
+.title-container {
+  height:4em
+}
+
+.description-container{
+  height: 8em;
+}

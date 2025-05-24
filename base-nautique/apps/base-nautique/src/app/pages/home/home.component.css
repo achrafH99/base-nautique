@@ -1,0 +1,29 @@
+
+.valeurs {
+  margin: 40px 0px;
+  padding: 20px;
+  /* background-color: #4069a1; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /* plus moderne que grid-gap */
+  place-items: center;
+      background: url(https://www.freeiconspng.com/uploads/wind-wave-transparent-background-8.png);
+    background-position: 20% 50%;
+    background-repeat: space;
+    background-size: 20%;
+}
+
+/* 🎯 Responsive : 1 colonne sous 768px */
+@media (max-width: 768px) {
+  .valeurs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.activity-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-items: center; /* pour centrer les cards si elles sont trop petites */
+  padding: 1rem;
+}

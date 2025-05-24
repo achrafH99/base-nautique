@@ -1,0 +1,8 @@
+.company-intro {
+  /* background: linear-gradient(85deg, #f2ae4f99, rgba(255, 255, 255, 0.6)); */
+  background: rgba(255, 255, 255, 0.648);
+      min-height: 200px;
+  padding: 20px;
+  border-radius: 30px;
+  font-family: sans-serif;
+}

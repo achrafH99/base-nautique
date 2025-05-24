@@ -1,0 +1,112 @@
+.slot-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.slot-form {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #34495e;
+}
+
+input, select {
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #16a085;
+}
+
+.slot-list {
+  list-style: none;
+  padding: 0;
+}
+
+.slot-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slot-item button {
+  margin-left: 0.5rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.slot-item button:last-child {
+  background-color: #e74c3c;
+}
+
+.slot-item button:hover {
+  opacity: 0.9;
+}
+
+/* activity-slot.component.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+}

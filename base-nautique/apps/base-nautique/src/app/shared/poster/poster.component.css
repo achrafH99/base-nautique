@@ -1,0 +1,23 @@
+.poster {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  border-radius: 20px;
+  /* margin: 20px auto; */
+}
+
+.poster-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Pour permettre le mouvement sans bord visible */
+  background-image: url('https://assets.zyrosite.com/YKbJB7NoMWcEnXZ2/untitled-design-4-AVLJq80avQtNRQ4p.gif');
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: 0;
+  transform: translateY(0);
+  transition: transform 0.03s ease-out;
+}

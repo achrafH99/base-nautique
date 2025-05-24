@@ -1,0 +1,84 @@
+<div class="slot-container">
+  <h2>Créneaux pour l’activité</h2>
+
+  <form [formGroup]="slotForm" (ngSubmit)="onSubmit()" class="slot-form">
+
+  <!-- Date de début de la récurrence -->
+  <label>
+    Date de début :
+    <input type="date" formControlName="recurrenceStartDate" required />
+  </label>
+
+  <!-- Date de fin de la récurrence -->
+  <label>
+    Date de fin (inclus) :
+    <input type="date" formControlName="recurrenceEndDate" required />
+  </label>
+
+  <!-- Heure de début de chaque créneau -->
+  <label>
+    Heure de début du créneau :
+    <input type="time" formControlName="slotStartTime" required />
+  </label>
+
+  <!-- Durée du créneau -->
+  <label>
+    Durée du créneau (minutes) :
+    <input type="number" formControlName="slotDuration" min="1" required />
+  </label>
+
+  <!-- Fréquence -->
+  <label>
+    Fréquence :
+    <select formControlName="frequency">
+      <option value="">Un seul créneau</option>
+      <option value="daily">Tous les jours</option>
+      <option value="weekly">Chaque semaine</option>
+      <option value="15min">Tous les 15 minutes</option>
+    </select>
+  </label>
+
+  <!-- Places max -->
+  <label>
+    Places max :
+    <input type="number" formControlName="maxPlaces" min="1" required />
+  </label>
+
+  <button type="submit" class="submit-btn">
+    {{ editingSlot ? 'Modifier' : 'Ajouter' }} les créneaux
+  </button>
+</form>
+<button (click)="viewMode = viewMode === 'list' ? 'calendar' : 'list'">
+  Passer en vue {{ viewMode === 'list' ? 'calendrier' : 'liste' }}
+</button>
+
+  <div *ngIf="viewMode === 'list'">
+  <ul class="slot-list">
+    <li *ngFor="let slot of slots" class="slot-item">
+      <span>
+        {{ slot.startTime | date:'short' }} → {{ slot.endTime | date:'short' }}
+        ({{ slot.bookedPlaces }}/{{ slot.maxPlaces }})
+      </span>
+      <button (click)="onEdit(slot)">Modifier</button>
+      <button (click)="onDelete(slot._id!)">Supprimer</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="viewMode === 'calendar'">
+      <full-calendar [options]="calendarOptions"></full-calendar>
+
+</div>
+
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal">
+    <h3>Détails du créneau</h3>
+    <p><strong>Début :</strong> {{ selectedSlot?.startTime | date: 'short' }}</p>
+    <p><strong>Fin :</strong> {{ selectedSlot?.endTime | date: 'short' }}</p>
+    <p><strong>Places :</strong> {{ selectedSlot?.bookedPlaces }} / {{ selectedSlot?.maxPlaces }}</p>
+
+    <button (click)="showModal = false">Fermer</button>
+  </div>
+</div>
+
+</div>
