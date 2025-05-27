@@ -1,0 +1,9 @@
+<div class="activity-details-card" *ngIf="activity">
+  <img [src]="activity.image" [alt]="activity.name" class="activity-image" />
+  <div class="details">
+    <h2 class="activity-title">{{ activity.name }}</h2>
+    <p class="activity-description">{{ activity.description }}</p>
+  </div>
+</div>
+
+      <full-calendar [options]="calendarOptions"></full-calendar>

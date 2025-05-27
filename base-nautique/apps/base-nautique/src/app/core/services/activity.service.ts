@@ -23,7 +23,7 @@ export class ActivityService {
   }
 
   getOneActivity(id:string):Observable<Activity>{
-    return this.http.get<Activity>(this.base_url+id)
+    return this.http.get<Activity>(this.base_url+"/"+id)
   }
 
   createActivity(activity: Partial<Activity>): Observable<Activity> {

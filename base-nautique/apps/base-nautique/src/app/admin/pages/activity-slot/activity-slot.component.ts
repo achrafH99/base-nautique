@@ -29,7 +29,7 @@ export class ActivitySlotComponent implements OnInit {
 
 calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin,timeGridPlugin,interactionPlugin],
-    initialView: 'timeGridWeek', // par défaut : vue semaine
+    initialView: 'timeGridWeek', 
   headerToolbar: {
     left: 'dayGridMonth,timeGridWeek,timeGridDay',
     center: 'title',
@@ -39,7 +39,7 @@ calendarOptions: CalendarOptions = {
    events: this.slots.map(slot => ({
     id: slot._id,
     title: `Places: ${slot.bookedPlaces}/${slot.maxPlaces}`,
-    start: slot.startTime,  // objet Date ou string ISO
+    start: slot.startTime, 
     end: slot.endTime,
     extendedProps: {
       test:"iciiiii",
@@ -51,7 +51,7 @@ calendarOptions: CalendarOptions = {
       slotData: slot  
     }
   })),
-  eventClick: this.onEventClick.bind(this),  // ⚠️ méthode définie ci-dessous
+  eventClick: this.onEventClick.bind(this), 
   dateClick: this.onDateClick.bind(this),
   };
 
