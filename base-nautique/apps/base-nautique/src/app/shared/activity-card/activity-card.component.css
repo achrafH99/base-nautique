@@ -1,59 +1,73 @@
 .activity-card {
-  background-color: #212121;
+  background-color: #2b2b2b;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.2rem;
+  color: #f0f0f0;
   width: 300px;
   height: 500px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.activity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .activity-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px 8px 0 0; /* arrondi que en haut */
-  flex-shrink: 0;  /* empêche l’image de rétrécir */
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.activity-card:hover img {
+  transform: scale(1.03);
 }
 
 .info {
-  flex-grow: 1;  /* prend tout l’espace restant */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   padding: 20px;
-}
-
-.description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: 8em;       
-  overflow: hidden;         /* correspond à 2 lignes environ */
-}
-
-.details-button {
-  color: black;
-  background-color: white;
-  font-size: medium;
-  padding: 7px;
-  border: none;
-  border-radius: 20px;
-  margin-top: auto;  /* pousse le bouton en bas de .info */
+  gap: 12px;
 }
 
 .title {
-
-  margin: 0 0 0.5em 0;     /* petit espace sous le titre */
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff;
 }
 
-.title-container {
-  height:4em
+.description {
+  flex-grow: 1;
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* limite à 4 lignes */
 }
 
-.description-container{
-  height: 8em;
+.details-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+  background-color: #0056b3;
+  cursor: pointer;
 }

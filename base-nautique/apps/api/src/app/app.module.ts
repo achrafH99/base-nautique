@@ -14,7 +14,7 @@ import { SlotModule } from '../slot/slot.module';
     ConfigModule.forRoot({
       isGlobal:true,
     }),
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot('mongodb://root:example@92.113.144.117:27017'),
     UserModule,
     AuthModule,
     ActivitiesModule,

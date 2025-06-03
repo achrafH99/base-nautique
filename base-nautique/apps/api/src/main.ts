@@ -12,7 +12,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
     app.enableCors({
-    origin: 'https://fluffy-space-fishstick-4v9w57q4j7q27w96-4200.app.github.dev', // frontend URL
+    origin: '*', // frontend URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type, Authorization',
     credentials: true,
@@ -28,7 +28,7 @@ async function bootstrap() {
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3000;
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
   Logger.log(
     `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
   );

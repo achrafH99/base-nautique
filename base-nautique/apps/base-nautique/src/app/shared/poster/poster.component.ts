@@ -1,16 +1,21 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, HostListener, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-poster',
-  imports: [CommonModule],
   templateUrl: './poster.component.html',
-  styleUrl: './poster.component.css',
+  styleUrls: ['./poster.component.css'],
 })
-export class PosterComponent implements OnInit {
+export class PosterComponent implements AfterViewInit {
+  private posterOffsetTop = 0;
+
   constructor(private el: ElementRef) {}
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    const poster = this.el.nativeElement.querySelector('.poster');
+    if (poster) {
+      // Récupérer la position absolue de la section par rapport au haut de la page
+      this.posterOffsetTop = poster.offsetTop;
+    }
     this.updateParallax();
   }
 
@@ -23,8 +28,15 @@ export class PosterComponent implements OnInit {
     const poster = this.el.nativeElement.querySelector('.poster');
     const bg = this.el.nativeElement.querySelector('.poster-bg');
 
-    const rect = poster.getBoundingClientRect();
-    const offset = rect.top * 0.4; // Ratio du déplacement
+    if (!poster || !bg) return;
+
+    // Distance scrollée depuis le top jusqu'à la section
+    const scrollPosition = window.scrollY;
+    const relativeScroll = scrollPosition - this.posterOffsetTop;
+
+    // Multiplier par un facteur pour l'effet parallax
+    const offset = relativeScroll * 0.4;
+
     bg.style.transform = `translateY(${offset}px)`;
   }
 }
