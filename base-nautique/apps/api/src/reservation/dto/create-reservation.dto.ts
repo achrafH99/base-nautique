@@ -6,9 +6,18 @@ export class CreateReservationDto {
   slotId: string;
 
   @IsNotEmpty()
+  userPhone:string;
+
+  @IsNotEmpty()
+  userName:string
+
+  @IsNotEmpty()
   userEmail: string;
 
   @IsDateString()
   createdAt: string;
+
+  @IsNumber()
+  bookedPlaces:number;
 
 }

@@ -7,6 +7,7 @@ import { UserModule } from '../user/user.module';
 import { AuthModule } from '../auth/auth.module';
 import { ActivitiesModule } from '../activities/activities.module';
 import { SlotModule } from '../slot/slot.module';
+import { ReservationModule } from '../reservation/reservation.module';
 
 
 @Module({
@@ -14,11 +15,12 @@ import { SlotModule } from '../slot/slot.module';
     ConfigModule.forRoot({
       isGlobal:true,
     }),
-    MongooseModule.forRoot('mongodb://root:example@92.113.144.117:27017'),
+    MongooseModule.forRoot(process.env.MONGO_URI),
     UserModule,
     AuthModule,
     ActivitiesModule,
-    SlotModule
+    SlotModule,
+    ReservationModule
   ],
   controllers: [AppController],
   providers: [AppService],

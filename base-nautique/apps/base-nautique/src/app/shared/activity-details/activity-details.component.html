@@ -1,0 +1,46 @@
+<div class="activity-details-card" *ngIf="activity">
+  <img [src]="activity.image" [alt]="activity.name" class="activity-image" />
+  <div class="details">
+    <h2 class="activity-title">{{ activity.name }}</h2>
+    <p class="activity-description">{{ activity.description }}</p>
+  </div>
+</div>
+
+      <full-calendar [options]="calendarOptions"></full-calendar>
+
+<div class="modal" *ngIf="showRegistration" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3>Inscription au slot</h3>
+    <p><strong>Activité :</strong> {{ activity.name }}</p>
+    <p><strong>Date :</strong> {{ selectedSlot.startTime | date: 'fullDate' }}</p>
+    <p><strong>Places restantes :</strong> {{ (selectedSlot.maxPlaces ) - (selectedSlot.bookedPlaces) }}</p>
+
+   <form [formGroup]="registrationForm" (ngSubmit)="submitRegistration()" class="form-grid">
+    <div class="form-group">
+      <label for="name">Nom complet</label>
+      <input id="name" formControlName="name" type="text" placeholder="Votre nom complet" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Adresse e-mail</label>
+      <input id="email" formControlName="email" type="email" placeholder="votre@email.com" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Numéro de téléphone</label>
+      <input id="phone" formControlName="phone" type="tel" placeholder="+33 6 12 34 56 78" required />
+    </div>
+
+    <div class="form-group">
+      <label for="places">Nombre de places à réserver</label>
+      <input id="places" formControlName="places" type="number" min="1" placeholder="Ex: 2" required />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">Confirmer la réservation</button>
+    </div>
+  </form>
+
+
+  </div>
+</div>

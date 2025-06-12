@@ -9,7 +9,7 @@ export interface Slot {
   startTime: string; 
   endTime: string;
   maxPlaces: number;
-  bookedPlaces?: number;
+  bookedPlaces: number;
 }
 
 @Injectable({

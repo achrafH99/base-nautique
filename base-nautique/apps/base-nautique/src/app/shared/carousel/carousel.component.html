@@ -1,0 +1,13 @@
+<section class="carousel">
+  <h2>Avis de nos clients</h2>
+  <div class="carousel-container">
+    <div class="testimonial">
+      <p class="message">“{{ testimonials[currentIndex].message }}”</p>
+      <p class="author">– {{ testimonials[currentIndex].name }}</p>
+    </div>
+    <div class="controls">
+      <button (click)="prev()">❮</button>
+      <button (click)="next()">❯</button>
+    </div>
+  </div>
+</section>

@@ -1,7 +1,10 @@
 <app-poster></app-poster>
 <app-company-intro></app-company-intro>
+<section style="background: linear-gradient(to right, #1e3c72, #2a5298); padding: 2rem 0;">
+  <app-weather-widget></app-weather-widget>
+</section>
 <section class="activities">
-  <h2>Nos activités</h2>
+  <h2 style=" padding: 0px 20px;">Nos activités</h2>
   <div class="activity-list">
     <app-activity-card
     *ngFor="let activity of activities | slice:0:4"
@@ -12,3 +15,4 @@
 <section class="valeurs">
   <app-home-card *ngFor="let value of values" [value]=value></app-home-card>
 </section>
+<app-carousel></app-carousel>

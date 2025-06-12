@@ -8,11 +8,20 @@ export class ReservationEntity {
     @Prop({ required: true })
     userEmail: string;
 
+    @Prop({required:true})
+    userPhone: string;
+   
+    @Prop({required:true})
+    userName: string;
+
     @Prop({ type:Types.ObjectId, ref:'SlotEntity', required: true })
     slotId: Types.ObjectId;
 
     @Prop({ default: Date.now })
     createdAt: Date;
+
+    @Prop({required:true})
+    bookedPlaces: number;
 }
 
 export const ReservationSchema = SchemaFactory.createForClass(ReservationEntity);

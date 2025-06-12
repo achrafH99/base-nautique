@@ -1,0 +1,47 @@
+<div class="dashboard">
+  <header class="dashboard-header">
+    <h1>Gestion des réservations</h1>
+    <p>Consultez, filtrez et supprimez les réservations facilement.</p>
+  </header>
+
+  <section class="filters">
+    <label>
+      Date de début :
+      <input type="date" [(ngModel)]="startDate" />
+    </label>
+    <label>
+      Date de fin :
+      <input type="date" [(ngModel)]="endDate" />
+    </label>
+    <button (click)="loadReservations()">Filtrer</button>
+    <button class="clear" (click)="resetFilter()">Réinitialiser</button>
+  </section>
+
+  <section class="reservations-table">
+    <table *ngIf="reservations.length > 0">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>Places</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let res of reservations">
+          <td>{{ res.userName }}</td>
+          <td>{{ res.userEmail }}</td>
+          <td>{{ res.userPhone }}</td>
+          <td>{{ res.bookedPlaces }}</td>
+          <td>{{ res.createdAt | date: 'short' }}</td>
+          <td>
+            <button (click)="deleteReservation(res._id)">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="reservations.length === 0">Aucune réservation trouvée.</p>
+  </section>
+</div>

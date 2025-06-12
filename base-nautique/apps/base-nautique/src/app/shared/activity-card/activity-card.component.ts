@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Activity } from '../../core/services/activity.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-activity-card',
@@ -10,10 +11,12 @@ import { Activity } from '../../core/services/activity.service';
 })
 export class ActivityCardComponent {
     @Input() activity!: {_id:number; name: string; description: string; image: string };
-    seeMore:string="Voir"
+    seeMore:string="Voir";
+    private router = inject(Router);
+
     constructor(){}
 
     goDetails(activity:Activity){
-      console.log(activity)
+        this.router.navigate(['/activity', activity._id]);
     }
 }
